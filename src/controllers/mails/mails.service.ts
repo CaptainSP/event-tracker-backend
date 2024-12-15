@@ -20,9 +20,7 @@ export class MailsService {
     this.mailQueue.add('fetch-mails', {
       accessToken,
     }, {
-      repeat: {
-        every: 1000,
-      },
+      
     });
   }
 

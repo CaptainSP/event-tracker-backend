@@ -7,6 +7,9 @@ const configration = () => ({
     username: process.env.POSTGRES_USER,
     password: process.env.POSTGRES_PASSWORD,
   },
+  goggle: {
+    apiKey: process.env.GOOGLE_API_KEY,
+  }
 });
 
 export type configrationKeys = keyof ReturnType<typeof configration>;
