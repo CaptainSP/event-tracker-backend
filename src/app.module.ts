@@ -9,6 +9,9 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { AuthModule } from './auth/auth.module';
 import { UsersModule } from './controllers/users/users.module';
 import { MailsModule } from './controllers/mails/mails.module';
+import { TagsModule } from './controllers/tags/tags.module';
+import { EventsModule } from './controllers/events/events.module';
+import { SettingsModule } from './controllers/settings/settings.module';
 
 const migrations = ['dist/migrations/**/*{.ts,.js}'];
 
@@ -46,7 +49,10 @@ const migrations = ['dist/migrations/**/*{.ts,.js}'];
     }),
     AuthModule,
     UsersModule,
-    MailsModule
+    MailsModule,
+    TagsModule,
+    EventsModule,
+    SettingsModule
   ],
   controllers: [AppController],
   providers: [AppService],

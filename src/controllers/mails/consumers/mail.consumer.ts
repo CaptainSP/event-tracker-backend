@@ -54,6 +54,7 @@ export class MailConsumer extends WorkerHost {
         } else {
           const result = await this.gemini.add('add', {
             email,
+            accessToken
           });
           await this.mailRepository.save({
             outlookId: email.id,
