@@ -21,11 +21,15 @@ const migrations = ['dist/migrations/**/*{.ts,.js}'];
       isGlobal: true,
       load: [configuration],
     }),
-    BullModule.forRoot({
-      connection: {
-        host: 'localhost',
-        port: 6379,
-      },
+    BullModule.forRootAsync({
+      imports: [ConfigModule],
+      inject: [ConfigService],
+      useFactory: async (configService: ConfigService) => ({
+        connection: {
+          host: configService.get('redis.host'),
+          port: configService.get('redis.port'),
+        },
+      }),
     }),
     TypeOrmModule.forRootAsync({
       imports: [ConfigModule.forRoot({
